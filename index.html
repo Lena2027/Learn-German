@@ -1,70 +1,78 @@
 <!DOCTYPE html>
-<html lang="ko" style="background-color: #ffe4e1;"> <head>
+<html lang="ko">
+<head>
     <meta charset="UTF-8">
-    <title>모델핏 순정만화 코디 게임</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모델핏 순정만화 코디 게임 👗</title>
     <style>
+        :root { --main-color: #ffafcc; --bg-color: #f8edeb; }
         body { 
-            margin: 0; padding: 20px; display: flex; flex-direction: column; 
-            align-items: center; font-family: 'Malgun Gothic', sans-serif;
+            background-color: var(--bg-color); 
+            display: flex; flex-direction: column; align-items: center; 
+            font-family: 'Malgun Gothic', sans-serif; margin: 0; padding: 20px;
         }
-        .container { 
-            display: flex; gap: 30px; background: white; padding: 25px; 
-            border-radius: 30px; border: 5px solid #ffafcc;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); flex-wrap: wrap;
+        .game-wrapper { 
+            display: flex; gap: 40px; background: white; padding: 30px; 
+            border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            max-width: 800px; width: 95%; flex-wrap: wrap; justify-content: center;
         }
-        .screen {
-            position: relative; width: 350px; height: 600px;
-            background: #fff; border-radius: 15px; overflow: hidden;
+        .character-area {
+            position: relative; width: 350px; height: 500px;
+            background: #fff; border: 4px solid var(--main-color); border-radius: 20px;
+            overflow: hidden;
         }
-        .layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .outfit { display: none; } /* 입히는 옷들은 처음에 숨김 */
+        /* 저장한 이미지가 들어가는 곳 */
+        #base-girl { width: 100%; height: 100%; object-fit: contain; position: absolute; z-index: 1; }
+        
+        /* 옷 레이어 */
+        .cloth { position: absolute; width: 100%; height: 100%; z-index: 10; display: none; pointer-events: none; }
 
         .menu { width: 250px; display: flex; flex-direction: column; gap: 20px; }
-        .box { background: #fff0f5; padding: 15px; border-radius: 15px; border: 1px dashed #ff8fab; }
+        .category { background: #fff0f5; padding: 15px; border-radius: 15px; border: 1px dashed var(--main-color); }
+        .category h3 { margin: 0 0 10px 0; color: #fb6f92; font-size: 16px; }
         button { 
             width: 100%; padding: 12px; margin-bottom: 8px; border: none; 
-            border-radius: 10px; background: #ff8fab; color: white; 
-            font-weight: bold; cursor: pointer; transition: 0.2s;
+            border-radius: 10px; background: white; border: 1px solid var(--main-color);
+            color: #fb6f92; font-weight: bold; cursor: pointer; transition: 0.2s;
         }
-        button:hover { background: #ff4d6d; transform: scale(1.03); }
+        button:hover { background: var(--main-color); color: white; }
     </style>
 </head>
 <body>
 
-    <h1 style="color: #d02090; text-shadow: 2px 2px white;">💖 모델핏 여주인공 코디하기 💖</h1>
+    <h1 style="color: #fb6f92;">✨ 순정만화 주인공 코디하기 ✨</h1>
 
-    <div class="container">
-        <div class="screen">
-            <svg class="layer" viewBox="0 0 200 450">
-                <path d="M 60 70 Q 60 10 100 10 Q 140 10 140 70 L 150 200 Q 100 180 50 200 Z" fill="#3e2723" />
-                <rect x="88" y="220" width="10" height="200" rx="5" fill="#ffe0bd" /> 
-                <rect x="102" y="220" width="10" height="200" rx="5" fill="#ffe0bd" />
-                <path d="M 85 100 L 115 100 L 118 220 Q 100 225 82 220 Z" fill="#ffe0bd" />
-                <path d="M 78 60 Q 78 95 100 95 Q 122 95 122 60 Q 122 35 100 35 Q 78 35 78 60" fill="#ffe0bd" />
-                <ellipse cx="88" cy="65" rx="4" ry="6" fill="#333" /> <circle cx="87" cy="62" r="1.5" fill="white" />
-                <ellipse cx="112" cy="65" rx="4" ry="6" fill="#333" /> <circle cx="111" cy="62" r="1.5" fill="white" />
-                <path d="M 97 82 Q 100 85 103 82" stroke="#ff80ab" fill="none" stroke-width="1.5" stroke-linecap="round" />
-                
-                <path d="M 85 100 L 115 100 L 118 160 L 82 160 Z" fill="white" stroke="#eee" />
-                <path d="M 82 210 L 118 210 L 120 235 L 100 220 L 80 235 Z" fill="white" stroke="#eee" />
-            </svg>
-
-            <svg id="top-pink" class="layer outfit" viewBox="0 0 200 450"><path d="M 80 100 L 120 100 L 130 165 L 70 165 Z" fill="#ff4d6d" /></svg>
-            <svg id="bottom-purple" class="layer outfit" viewBox="0 0 200 450"><path d="M 82 210 L 118 210 L 140 320 L 60 320 Z" fill="#9d4edd" /></svg>
+    <div class="game-wrapper">
+        <div class="character-area">
+            <img src="girl.png" id="base-girl">
+            
+            <div id="top-pink" class="cloth" style="background: rgba(255, 105, 180, 0.5); top: 120px; height: 100px; width: 120px; left: 115px; border-radius: 10px;"></div>
+            <div id="top-blue" class="cloth" style="background: rgba(0, 191, 255, 0.5); top: 115px; height: 110px; width: 130px; left: 110px; border-radius: 10px;"></div>
+            <div id="bottom-purple" class="cloth" style="background: rgba(153, 50, 204, 0.5); top: 220px; height: 150px; width: 100px; left: 125px; border-radius: 10px;"></div>
         </div>
 
         <div class="menu">
-            <div class="box">
-                <h3>👗 스타일 선택</h3>
-                <button onclick="show('top-pink')">핑크 크롭탑</button>
-                <button onclick="show('bottom-purple')">퍼플 스커트</button>
+            <div class="category">
+                <h3>👗 상의</h3>
+                <button onclick="change('top', 'top-pink')">핑크 탑</button>
+                <button onclick="change('top', 'top-blue')">블루 셔츠</button>
             </div>
-            <button style="background:#888;" onclick="location.reload()">모두 벗기 🧼</button>
+            <div class="category">
+                <h3>👖 하의</h3>
+                <button onclick="change('bottom', 'bottom-purple')">퍼플 스커트</button>
+            </div>
+            <button style="background:#888; color:white;" onclick="location.reload()">모두 벗기 🧼</button>
         </div>
     </div>
 
     <script>
-        function show(id) { document.getElementById(id).style.display = 'block'; }
+        function change(type, id) {
+            if(type === 'top') {
+                document.getElementById('top-pink').style.display = 'none';
+                document.getElementById('top-blue').style.display = 'none';
+            }
+            document.getElementById(id).style.display = 'block';
+        }
     </script>
 </body>
 </html>
