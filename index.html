@@ -1,77 +1,65 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>모델핏 순정만화 코디 게임 👗</title>
+    <title>순정만화 인형놀이 💖</title>
     <style>
-        :root { --main-color: #ffafcc; --bg-color: #f8edeb; }
-        body { 
-            background-color: var(--bg-color); 
-            display: flex; flex-direction: column; align-items: center; 
-            font-family: 'Malgun Gothic', sans-serif; margin: 0; padding: 20px;
-        }
-        .game-wrapper { 
-            display: flex; gap: 40px; background: white; padding: 30px; 
-            border-radius: 30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            max-width: 800px; width: 95%; flex-wrap: wrap; justify-content: center;
-        }
-        .character-area {
-            position: relative; width: 350px; height: 500px;
-            background: #fff; border: 4px solid var(--main-color); border-radius: 20px;
-            overflow: hidden;
-        }
-        /* 저장한 이미지가 들어가는 곳 */
-        #base-girl { width: 100%; height: 100%; object-fit: contain; position: absolute; z-index: 1; }
+        body { background: #fff0f5; display: flex; flex-direction: column; align-items: center; font-family: sans-serif; }
+        .title { color: #ff8fab; }
         
-        /* 옷 레이어 */
-        .cloth { position: absolute; width: 100%; height: 100%; z-index: 10; display: none; pointer-events: none; }
-
-        .menu { width: 250px; display: flex; flex-direction: column; gap: 20px; }
-        .category { background: #fff0f5; padding: 15px; border-radius: 15px; border: 1px dashed var(--main-color); }
-        .category h3 { margin: 0 0 10px 0; color: #fb6f92; font-size: 16px; }
-        button { 
-            width: 100%; padding: 12px; margin-bottom: 8px; border: none; 
-            border-radius: 10px; background: white; border: 1px solid var(--main-color);
-            color: #fb6f92; font-weight: bold; cursor: pointer; transition: 0.2s;
+        /* 캐릭터가 보이는 창 */
+        .window {
+            width: 350px; height: 550px; /* 한 명 크기 */
+            border: 8px solid white; border-radius: 20px;
+            overflow: hidden; background: white; position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        button:hover { background: var(--main-color); color: white; }
+
+        /* 10명이 들어있는 통이미지 */
+        #sprite {
+            position: absolute;
+            width: 500%; height: 200%; /* 5열 2행이라서 크게 설정 */
+            background-image: url('dresses.png');
+            background-size: cover;
+            background-position: 0% 0%;
+            transition: 0.3s; /* 옷 갈아입을 때 슥슥 움직이는 효과 */
+        }
+
+        /* 버튼들 */
+        .menu { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; width: 350px; }
+        button { 
+            padding: 15px; border: none; border-radius: 10px; 
+            background: white; color: #ff8fab; font-weight: bold; cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        button:hover { background: #ffafcc; color: white; }
     </style>
 </head>
 <body>
 
-    <h1 style="color: #fb6f92;">✨ 순정만화 주인공 코디하기 ✨</h1>
+    <h1 class="title">✨ 순정만화 모델 코디쇼 ✨</h1>
 
-    <div class="game-wrapper">
-        <div class="character-area">
-            <img src="girl.png" id="base-girl">
-            
-            <div id="top-pink" class="cloth" style="background: rgba(255, 105, 180, 0.5); top: 120px; height: 100px; width: 120px; left: 115px; border-radius: 10px;"></div>
-            <div id="top-blue" class="cloth" style="background: rgba(0, 191, 255, 0.5); top: 115px; height: 110px; width: 130px; left: 110px; border-radius: 10px;"></div>
-            <div id="bottom-purple" class="cloth" style="background: rgba(153, 50, 204, 0.5); top: 220px; height: 150px; width: 100px; left: 125px; border-radius: 10px;"></div>
-        </div>
+    <div class="window">
+        <div id="sprite"></div>
+    </div>
 
-        <div class="menu">
-            <div class="category">
-                <h3>👗 상의</h3>
-                <button onclick="change('top', 'top-pink')">핑크 탑</button>
-                <button onclick="change('top', 'top-blue')">블루 셔츠</button>
-            </div>
-            <div class="category">
-                <h3>👖 하의</h3>
-                <button onclick="change('bottom', 'bottom-purple')">퍼플 스커트</button>
-            </div>
-            <button style="background:#888; color:white;" onclick="location.reload()">모두 벗기 🧼</button>
-        </div>
+    <div class="menu">
+        <button onclick="change(0, 0)">1. 옐로 플라워</button>
+        <button onclick="change(25, 0)">2. 데님 멜빵</button>
+        <button onclick="change(50, 0)">3. 블루 줄무늬</button>
+        <button onclick="change(75, 0)">4. 네이비 셔츠</button>
+        <button onclick="change(100, 0)">5. 레드 도트</button>
+        
+        <button onclick="change(0, 100)">6. 이브닝 블루</button>
+        <button onclick="change(25, 100)">7. 실크 화이트</button>
+        <button onclick="change(50, 100)">8. 벨벳 그린</button>
+        <button onclick="change(75, 100)">9. 전통 의상</button>
+        <button onclick="change(100, 100)">10. 글리터 파티</button>
     </div>
 
     <script>
-        function change(type, id) {
-            if(type === 'top') {
-                document.getElementById('top-pink').style.display = 'none';
-                document.getElementById('top-blue').style.display = 'none';
-            }
-            document.getElementById(id).style.display = 'block';
+        function change(x, y) {
+            document.getElementById('sprite').style.backgroundPosition = x + '% ' + y + '%';
         }
     </script>
 </body>
