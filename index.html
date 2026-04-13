@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nico – Lernplan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+<div class="app">
+
+  <!-- HEADER -->
+  <div class="card header-card">
+    <div class="header-top">
+      <div class="child-name">Nico</div>
+      <div class="date-weather">
+        <span id="date-display"></span>
+        <span class="weather-tag">⛅ 16°C</span>
+      </div>
+    </div>
+    <div class="todo-label">Heutige Aufgaben</div>
+    <div class="todo-row">
+      <div class="todo-item"><div class="dot green"></div><span>Deutsch Hausaufgaben</span></div>
+      <div class="todo-item"><div class="dot yellow"></div><span>Mathe Übung</span></div>
+      <div class="todo-item"><div class="dot red"></div><span>Englisch Vokabeln</span></div>
+      <div class="todo-item"><div class="dot green"></div><span>Sachkunde lesen</span></div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="main-nav" class="nav"></nav>
+
+  <!-- CALENDAR -->
+  <div class="card" style="margin-bottom:10px;">
+    <div class="cal-nav">
+      <button id="cal-prev">&#8592;</button>
+      <span id="cal-title" class="cal-month"></span>
+      <button id="cal-next">&#8594;</button>
+    </div>
+    <div id="cal-grid" class="cal-grid"></div>
+  </div>
+
+  <!-- DAY DETAIL -->
+  <div id="day-detail" class="card day-detail">
+    <div id="dd-title" class="dd-title"></div>
+    <div id="dd-body"></div>
+  </div>
+
+  <!-- OVERVIEW CARDS -->
+  <div class="overview-grid">
+    <a href="deutsch.html" class="ov-card">
+      <div class="ov-head">
+        <span class="ov-title">📖 Deutsch</span>
+        <span class="ov-badge" style="background:var(--green-bg);color:var(--green-text);">Gut so!</span>
+      </div>
+      <div class="pbar-bg"><div class="pbar" id="pbar-d" style="background:var(--c-deutsch);"></div></div>
+      <div class="ov-stat"><span id="pct-d">72%</span><span id="lekt-d">18/25 Lekt.</span></div>
+    </a>
+    <a href="mathe.html" class="ov-card">
+      <div class="ov-head">
+        <span class="ov-title">🔢 Mathe</span>
+        <span class="ov-badge" style="background:var(--amber-bg);color:var(--amber-text);">Weiter!</span>
+      </div>
+      <div class="pbar-bg"><div class="pbar" id="pbar-m" style="background:var(--c-mathe);"></div></div>
+      <div class="ov-stat"><span id="pct-m">48%</span><span id="lekt-m">12/25 Lekt.</span></div>
+    </a>
+    <a href="natur.html" class="ov-card">
+      <div class="ov-head">
+        <span class="ov-title">🌿 Natur</span>
+        <span class="ov-badge" style="background:var(--lime-bg);color:var(--lime-text);">Super!</span>
+      </div>
+      <div class="pbar-bg"><div class="pbar" id="pbar-n" style="background:var(--c-natur);"></div></div>
+      <div class="ov-stat"><span id="pct-n">88%</span><span id="lekt-n">22/25 Lekt.</span></div>
+    </a>
+    <a href="englisch.html" class="ov-card">
+      <div class="ov-head">
+        <span class="ov-title">🌍 Englisch</span>
+        <span class="ov-badge" style="background:var(--red-bg);color:var(--red-text);">Üben!</span>
+      </div>
+      <div class="pbar-bg"><div class="pbar" id="pbar-e" style="background:var(--c-englisch);"></div></div>
+      <div class="ov-stat"><span id="pct-e">30%</span><span id="lekt-e">7/25 Lekt.</span></div>
+    </a>
+  </div>
+
+</div>
+<script type="module">
+  import { initNav, renderDate } from './js/nav.js';
+  import { initCalendar } from './js/calendar.js';
+  import { seedDemoIfEmpty, PROGRESS } from './js/store.js';
+
+  seedDemoIfEmpty();
+  initNav();
+  initCalendar();
+
+  // 진행률 바 렌더
+  Object.entries(PROGRESS).forEach(([id, { done, total }]) => {
+    const pct = Math.round(done / total * 100);
+    const bar = document.getElementById('pbar-' + id);
+    if (bar) bar.style.width = pct + '%';
+  });
+</script>
+</body>
+</html>

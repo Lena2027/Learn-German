@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nico – Mathe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="mathe" data-subject="m">
+<div class="app">
+
+  <div class="card header-card">
+    <div class="header-top">
+      <div class="child-name">Nico</div>
+      <div class="date-weather">
+        <span id="date-display"></span>
+        <span class="weather-tag">⛅ 16°C</span>
+      </div>
+    </div>
+    <div class="todo-label">Heutige Aufgaben</div>
+    <div class="todo-row">
+      <div class="todo-item"><div class="dot green"></div><span>Deutsch Hausaufgaben</span></div>
+      <div class="todo-item"><div class="dot yellow"></div><span>Mathe Übung</span></div>
+      <div class="todo-item"><div class="dot red"></div><span>Englisch Vokabeln</span></div>
+      <div class="todo-item"><div class="dot green"></div><span>Sachkunde lesen</span></div>
+    </div>
+  </div>
+
+  <nav id="main-nav" class="nav"></nav>
+
+  <div class="card">
+    <a href="index.html" class="back-btn">← Zurück</a>
+    <div class="sp-title">🔢 Mathe</div>
+    <div class="sp-sub">Tagesroutine · Verstehen und Rechnen üben</div>
+
+    <div class="day-tabs">
+      <button class="dtab active" data-mode="wd">Mo–Fr</button>
+      <button class="dtab weekend" data-mode="we">Wochenende</button>
+    </div>
+
+    <div class="prog-summary">
+      <div class="prog-num"><div class="prog-val" id="prog-done">0</div><div class="prog-lbl">Erledigt</div></div>
+      <div class="prog-num"><div class="prog-val" id="prog-total">0</div><div class="prog-lbl">Gesamt</div></div>
+      <div class="prog-num"><div class="prog-val" id="prog-pct">0%</div><div class="prog-lbl">Fortschritt</div></div>
+    </div>
+
+    <div id="panel-weekday">
+      <div class="routine-section">
+        <div class="rs-label">Vorbereitung – vor der Schule (5 Min.)</div>
+        <div class="routine-slot accent-mathe">
+          <div class="slot-head">
+            <span class="slot-time" style="background:var(--blue-bg);color:var(--blue-text);">5 Min.</span>
+            <span class="slot-title">Aufgabentyp des Tages ansehen</span>
+          </div>
+          <div class="task-list">
+            <div class="task-item"><div class="chk"></div><span class="task-text">Kapitelüberschrift und Beispielaufgabe anschauen</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">Frage stellen: „Wie rechne ich das?"</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="routine-section">
+        <div class="rs-label">1. Wiederholung – in der Pause (5 Min.)</div>
+        <div class="routine-slot accent-mathe">
+          <div class="slot-head">
+            <span class="slot-time" style="background:var(--green-bg);color:var(--green-text);">5 Min.</span>
+            <span class="slot-title">Eine Aufgabe sofort nachrechnen</span>
+          </div>
+          <div class="task-list">
+            <div class="task-item"><div class="chk"></div><span class="task-text">Beispielaufgabe aus der Stunde nochmal lösen</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">Rechenweg im Kopf laut erklären</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="routine-section">
+        <div class="rs-label">Hausaufgaben – abends (25 Min.)</div>
+        <div class="routine-slot accent-mathe">
+          <div class="slot-head">
+            <span class="slot-time" style="background:var(--amber-bg);color:var(--amber-text);">25 Min.</span>
+            <span class="slot-title">Aufgaben lösen und Fehler verstehen</span>
+          </div>
+          <div class="task-list">
+            <div class="task-item"><div class="chk"></div><span class="task-text">5 Aufgaben aus dem Schulbuch lösen</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">Falsche Aufgaben laut erklären: „Hier habe ich falsch gerechnet, weil …"</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">Kleines Einmaleins mündlich üben (falls aktuelles Thema)</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">Rechenweg ins Heft schreiben</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="routine-section">
+        <div class="rs-label">2. Wiederholung – vor dem Schlafen (10 Min.)</div>
+        <div class="routine-slot accent-mathe">
+          <div class="slot-head">
+            <span class="slot-time" style="background:var(--purple-bg);color:var(--purple-text);">10 Min.</span>
+            <span class="slot-title">Blatt-Methode</span>
+          </div>
+          <div class="task-list">
+            <div class="task-item"><div class="chk"></div><span class="task-text">Rechenregel von heute aus dem Gedächtnis aufschreiben</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">3 kleine Kopfrechenaufgaben selbst erfinden und lösen</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="panel-weekend" style="display:none;">
+      <div class="routine-slot accent-mathe">
+        <div class="slot-head">
+          <span class="slot-time" style="background:var(--amber-bg);color:var(--amber-text);">Woche.</span>
+          <span class="slot-title">Wochenwiederholung (30 Min.)</span>
+        </div>
+        <div class="task-list">
+          <div class="task-item"><div class="chk"></div><span class="task-text">Alle Aufgabentypen der Woche einmal wiederholen</span></div>
+          <div class="task-item"><div class="chk"></div><span class="task-text">Falsche Aufgaben nochmal versuchen</span></div>
+          <div class="task-item"><div class="chk"></div><span class="task-text">Einmaleins komplett in 3 Minuten – Stopp-Uhr!</span></div>
+          <div class="task-item"><div class="chk"></div><span class="task-text">Mathe im Alltag entdecken (z.B. beim Einkaufen rechnen)</span></div>
+        </div>
+        <div class="slot-tip">Fehler sind kein Problem – sie zeigen, wo es noch Übung braucht!</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="module">
+  import { initNav } from './js/nav.js';
+  import { initSubjectPage } from './js/subject.js';
+  initNav();
+  initSubjectPage();
+</script>
+</body>
+</html>

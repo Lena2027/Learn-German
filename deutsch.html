@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nico – Deutsch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="deutsch" data-subject="d">
+<div class="app">
+
+  <!-- HEADER -->
+  <div class="card header-card">
+    <div class="header-top">
+      <div class="child-name">Nico</div>
+      <div class="date-weather">
+        <span id="date-display"></span>
+        <span class="weather-tag">⛅ 16°C</span>
+      </div>
+    </div>
+    <div class="todo-label">Heutige Aufgaben</div>
+    <div class="todo-row">
+      <div class="todo-item"><div class="dot green"></div><span>Deutsch Hausaufgaben</span></div>
+      <div class="todo-item"><div class="dot yellow"></div><span>Mathe Übung</span></div>
+      <div class="todo-item"><div class="dot red"></div><span>Englisch Vokabeln</span></div>
+      <div class="todo-item"><div class="dot green"></div><span>Sachkunde lesen</span></div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="main-nav" class="nav"></nav>
+
+  <!-- SUBJECT PAGE -->
+  <div class="card">
+    <a href="index.html" class="back-btn">← Zurück</a>
+    <div class="sp-title">📖 Deutsch</div>
+    <div class="sp-sub">Tagesroutine · Lesen, Schreiben und Hören</div>
+
+    <!-- TABS -->
+    <div class="day-tabs">
+      <button class="dtab active" data-mode="wd">Mo–Fr</button>
+      <button class="dtab weekend" data-mode="we">Wochenende</button>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="prog-summary">
+      <div class="prog-num"><div class="prog-val" id="prog-done">0</div><div class="prog-lbl">Erledigt</div></div>
+      <div class="prog-num"><div class="prog-val" id="prog-total">0</div><div class="prog-lbl">Gesamt</div></div>
+      <div class="prog-num"><div class="prog-val" id="prog-pct">0%</div><div class="prog-lbl">Fortschritt</div></div>
+    </div>
+
+    <!-- WEEKDAY PANEL -->
+    <div id="panel-weekday">
+      <div class="routine-section">
+        <div class="rs-label">Vorbereitung – vor der Schule (5 Min.)</div>
+        <div class="routine-slot accent-deutsch">
+          <div class="slot-head">
+            <span class="slot-time" style="background:var(--blue-bg);color:var(--blue-text);">5 Min.</span>
+            <span class="slot-title">Thema des Tages überfliegen</span>
+          </div>
+          <div class="task-list">
+            <div class="task-item"><div class="chk"></div><span class="task-text">Kapitelname und Lernziel lesen</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">Fettgedruckte Wörter unterstreichen</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">2 Fragen aufschreiben: „Was bedeutet das Wort …?"</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="routine-section">
+        <div class="rs-label">1. Wiederholung – in der Pause (5 Min.)</div>
+        <div class="routine-slot accent-deutsch">
+          <div class="slot-head">
+            <span class="slot-time" style="background:var(--green-bg);color:var(--green-text);">5 Min.</span>
+            <span class="slot-title">Gerade Gelerntes sofort wiederholen</span>
+          </div>
+          <div class="task-list">
+            <div class="task-item"><div class="chk"></div><span class="task-text">3 neue Wörter aus der Stunde laut sagen</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">Die Grammatikregel in einem Satz erklären</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="routine-section">
+        <div class="rs-label">Hausaufgaben – abends (25 Min.)</div>
+        <div class="routine-slot accent-deutsch">
+          <div class="slot-head">
+            <span class="slot-time" style="background:var(--amber-bg);color:var(--amber-text);">25 Min.</span>
+            <span class="slot-title">Lesen und Schreiben üben</span>
+          </div>
+          <div class="task-list">
+            <div class="task-item"><div class="chk"></div><span class="task-text">Text aus dem Lesebuch laut vorlesen</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">Neue Wörter 3-mal ins Heft schreiben</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">Einen eigenen Satz mit dem neuen Wort bilden</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">5 Wörter Diktat-Übung (laut buchstabieren)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="routine-section">
+        <div class="rs-label">2. Wiederholung – vor dem Schlafen (10 Min.)</div>
+        <div class="routine-slot accent-deutsch">
+          <div class="slot-head">
+            <span class="slot-time" style="background:var(--purple-bg);color:var(--purple-text);">10 Min.</span>
+            <span class="slot-title">Blatt-Methode (leeres Blatt Papier)</span>
+          </div>
+          <div class="task-list">
+            <div class="task-item"><div class="chk"></div><span class="task-text">Alle Wörter und Regeln von heute aus dem Gedächtnis aufschreiben</span></div>
+            <div class="task-item"><div class="chk"></div><span class="task-text">Was fehlt, im Schulbuch nachschlagen und ergänzen</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEEKEND PANEL -->
+    <div id="panel-weekend" style="display:none;">
+      <div class="routine-slot accent-deutsch">
+        <div class="slot-head">
+          <span class="slot-time" style="background:var(--amber-bg);color:var(--amber-text);">Woche.</span>
+          <span class="slot-title">Wochenwiederholung (30 Min.)</span>
+        </div>
+        <div class="task-list">
+          <div class="task-item"><div class="chk"></div><span class="task-text">Alle Wörter der Woche einmal durchlesen</span></div>
+          <div class="task-item"><div class="chk"></div><span class="task-text">Wortkarten basteln (Vorderseite: Wort, Rückseite: Bedeutung)</span></div>
+          <div class="task-item"><div class="chk"></div><span class="task-text">Eine Zusammenfassung der Grammatikregel schreiben</span></div>
+          <div class="task-item"><div class="chk"></div><span class="task-text">10 Minuten in einem Buch oder Bilderbuch lesen</span></div>
+        </div>
+        <div class="slot-tip">Nicht Neues lernen – das Gelernte richtig festigen!</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script type="module">
+  import { initNav } from './js/nav.js';
+  import { initSubjectPage } from './js/subject.js';
+  initNav();
+  initSubjectPage();
+</script>
+</body>
+</html>
